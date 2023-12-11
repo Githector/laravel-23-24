@@ -16,7 +16,7 @@
 
         <nav class="flex gap-2">
             <a class="font-bold uppercase text-gray-600" href="">Login</a>
-            <a class="font-bold uppercase text-gray-600 " href="">Register</a>
+            <a class="font-bold uppercase text-gray-600 " href="{{ route('register') }}">Register</a>
         </nav>
     </div>
     </header>
@@ -26,8 +26,8 @@
         @yield('content')
     </main>
 
-    <footer class="text-center p-5 text-gray-500 font-bold uppercase">
-        InstaCirvi - {{ now()->year }} &copy;
+    <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10">
+        InstaCirvi - All rights reserved &copy;
         @php echo date('Y') @endphp
 
     </footer>
