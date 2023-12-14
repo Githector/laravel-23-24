@@ -13,19 +13,20 @@
     </div>
     
     <div class="w-11/12 lg:w-5/12 bg-white p-6 rounded-xl shadow-xl">
-        <form action="{{ route('register')}}" method="POST">
+        <form action="{{ route('posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-5">
-                <label for="post_title" class="mb-2 block uppercase text-gray-500 font-bold">Post Title</label>
+                <label for="title" class="mb-2 block uppercase text-gray-500 font-bold">Post Title</label>
                 <input 
                     type="text"
-                    id="post_title"
-                    name="post_title"
+                    id="title"
+                    name="title"
                     placeholder="Your post title"
-                    class="border p-3 w-full rounded-lg @error('name')  border-red-500 @enderror"
-                    value="{{ old('name')}}"
+                    class="border p-3 w-full rounded-lg @error('title')  border-red-500 @enderror"
+                    value="{{ old('title')}}"
                     >
-                    @error('post_title')
+                    @error('title')
+
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                         
                     @enderror
@@ -37,23 +38,23 @@
                     id="post"
                     name="post"
                     placeholder="Your content post..."
-                    class="border p-3 w-full rounded-lg @error('username')  border-red-500 @enderror"
-                    >
-                    {{ old('post')}}
-                </textarea>    
+                    class="border p-3 w-full rounded-lg @error('post')  border-red-500 @enderror"
+                    >{{ old('post')}}</textarea>
+                    
+                   
                     @error('post')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
             </div>
             <div class="mb-5">
-                <label for="post_img" class="mb-2 block uppercase text-gray-500 font-bold">Post Image</label>
-                
-                <input class="block w-full mb-5 text-sm text-white-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-white-400 focus:outline-none dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-400 py-1 @error('email')  border-red-500 @enderror" 
-                id="post_img" 
-                type="file"
-                name="post_img">
+                <label for="img" class="mb-2 block uppercase text-gray-500 font-bold">Post Image</label>
 
-                    @error('post_img')
+                <input class="block w-full border border-gray-200 p-3 rounded-lg bg-gray-100" 
+                id="img" 
+                type="file"
+                name="img">
+
+                    @error('img')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
             </div>

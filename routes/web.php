@@ -31,8 +31,8 @@ Route::post ('/login', [LoginController::class, 'authenticate']);
 Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('posts/store', [PostController::class, 'store'])->name('posts.store');
+Route::get('posts/remove/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-
-
 
