@@ -46,4 +46,13 @@ Dashboard - {{ $user->name }}
 </div>
 
 
+<div class="flex justify-center lg:justify-between flex-wrap mt-5">
+    @foreach ($posts as $post)
+        <div class="w-10/12 md:w-8/12 lg:w-5/12 p-3 mb-3 shadow-xl">
+            <img class="w-full" src="{{ asset($post->getFirstMedia('images')->getUrl('three')) }}" alt="">
+            <h1>ssss</h1>
+        </div>
+    @endforeach
+</div>
+
 @endsection

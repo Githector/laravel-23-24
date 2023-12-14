@@ -19,10 +19,12 @@ class PostController extends Controller
 
     public function index(User $user)
     {
+        $posts = $user->posts()->get();
+        //dd($post->getFirstMedia('images')->getUrl());
         //dd(Auth::user()); //verifica si està autentificat.
-    
         return view('dashboard',[
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]
     );
     }
@@ -56,7 +58,7 @@ class PostController extends Controller
             //     'country' => 'Spain'
                 
             //     ])
-            ->toMediaCollection('images', 'media2');
+            ->toMediaCollection('images');
 
         return redirect()->route('posts.index',Auth::user());
     }

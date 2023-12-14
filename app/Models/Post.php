@@ -24,26 +24,26 @@ class Post extends Model implements HasMedia
         return static::all()->last();
     }
 
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('images')
-            ->useDisk('media2')  //Guarda las imagenes en la carpeta media/profiles
-            //->singleFile()
-            ;
-    }
+    // public function registerMediaCollections(): void
+    // {
+    //     $this->addMediaCollection('images')
+    //         ->useDisk('media2')  //Guarda las imagenes en la carpeta media/profiles
+    //         //->singleFile()
+    //         ;
+    // }
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->addMediaConversion('thumb')
-            ->width(300)
-            ->height(300)
-            ;
+        // $this->addMediaConversion('thumb')
+        //     ->width(300)
+        //     ->height(300)
+        //     ;
 
-            $this->addMediaConversion('thumb2')
-            ->nonOptimized()
-            ->width(300)
-            ->height(300)
-            ;
+            // $this->addMediaConversion('thumb2')
+            // ->nonOptimized()
+            // ->width(300)
+            // ->height(300)
+            // ;
 
             // $this->addMediaConversion('two')
             // ->width(200)
@@ -53,8 +53,8 @@ class Post extends Model implements HasMedia
             // //->nonQueued()
             // ;
 
-            // $this->addMediaConversion('three')
-            // ->crop('crop-center', 400, 400);
+             $this->addMediaConversion('three')
+             ->crop('crop-center', 400, 400);
 
             // $this->addMediaConversion('four')
             // ->fit(Manipulations::FIT_CROP, 400, 400)
@@ -63,4 +63,11 @@ class Post extends Model implements HasMedia
             // ->height(400);
             
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    
+ 
 }
