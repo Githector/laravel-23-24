@@ -14,12 +14,14 @@ class PostController extends Controller
 
     public function __construct()
     {
-        //$this->middleware(['auth']);
+        $this->middleware(['auth'])->except(['index']);
     }
 
     public function index(User $user)
     {
-        $posts = $user->posts()->get();
+        $posts = $user->posts()->paginate(5);
+        $posts = $user->posts()->simplePaginate(5);
+        //$users = User::where('votes', '>', 100)->paginate(15);
         //dd($post->getFirstMedia('images')->getUrl());
         //dd(Auth::user()); //verifica si està autentificat.
         return view('dashboard',[

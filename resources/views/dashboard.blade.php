@@ -45,14 +45,34 @@ Dashboard - {{ $user->name }}
     </div>
 </div>
 
+@if($posts->count() == 0)
+    <div class="flex justify-center items-center h-screen">
+        <div class="text-2xl text-gray-400">
+            No posts yet
+        </div>
+    </div>
+    @else
 
-<div class="flex justify-center lg:justify-between flex-wrap mt-5">
-    @foreach ($posts as $post)
-        <div class="w-10/12 md:w-8/12 lg:w-5/12 p-3 mb-3 shadow-xl">
+
+
+
+        <x-posts :posts="$posts" />
+
+
+
+
+    
+        
+    
+    
+    
+    
+    
+    {{-- <div class="w-10/12 md:w-8/12 lg:w-5/12 p-3 mb-3 shadow-xl">
             <img class="w-full" src="{{ asset($post->getFirstMedia('images')->getUrl('three')) }}" alt="">
             <h1>ssss</h1>
-        </div>
-    @endforeach
-</div>
+        </div> --}}
 
+{{ $posts->links()}}
+@endif
 @endsection
