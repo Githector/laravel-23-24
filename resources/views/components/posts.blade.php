@@ -11,7 +11,7 @@
             <div class="legend flex flex-col my-2 p-2">
                 <div class="likes flex">
 
-                    <livewire:like-post/>
+                    <livewire:like-post :post="$post"/>
 <!--
                     <div class="flex">
                         @auth
