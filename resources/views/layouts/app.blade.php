@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>InstaCirvi - @yield('title')</title>
+    @livewireStyles
 </head>
 <body class="bg-gray-100">
     <header class="p-5 border-b bg-white shadow">
@@ -52,6 +53,6 @@
 
     </footer>
     
-    
+    @livewireScripts
 </body>
 </html>

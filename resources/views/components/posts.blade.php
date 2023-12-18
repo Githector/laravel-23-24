@@ -11,8 +11,8 @@
             <div class="legend flex flex-col my-2 p-2">
                 <div class="likes flex">
 
-                    
-
+                    <livewire:like-post/>
+<!--
                     <div class="flex">
                         @auth
                         <form action="{{ route('posts.likes.switch',["post" => $post]) }}" method="post">
@@ -39,7 +39,7 @@
                         @endauth
                         <span>{{ rand(1,50) }} Likes</span>
                     </div>
-
+                -->
 
 
 
