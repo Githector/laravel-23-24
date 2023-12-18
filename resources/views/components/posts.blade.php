@@ -15,14 +15,15 @@
 
                     <div class="flex">
                         @auth
-                    
+                        <form action="{{ route('posts.likes.switch',["post" => $post]) }}" method="post">
                             {{-- {{ route('posts.likes.switch',["post" => $post]) }} --}}
                             @csrf
+                            
                             <button wire:click="like">
                                 {{--INICI SVG COTR--}}
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      {{-- fill="{{ $isLiked ? 'red' : 'none' }}" --}}
-                                     fill="none"
+                                     fill="{{ $post->checkLike(Auth::user()) ? 'red' : 'none' }}"
                                      viewBox="0 0 24 24"
                                      stroke-width="1.5"
                                      stroke="currentColor" class="w-6 h-6">
@@ -34,7 +35,7 @@
                     
                             </button>
                     
-                    
+                        </form>
                         @endauth
                         <span>{{ rand(1,50) }} Likes</span>
                     </div>
@@ -60,7 +61,7 @@
                             <form class="w-1/5"
                                   action="" method="post">
                                 @csrf
-                                @method('delete')
+                                {{-- @method('delete') --}}
                                 <button
                                     class="trash"
                                     type="submit">
